@@ -37,7 +37,6 @@ inputs:
         The size of the QR Code image using the format : WIDTHxHEIGHT
       is_required: false
 
-
 outputs:
   - BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL:
     opts:
@@ -45,3 +44,4 @@ outputs:
       description: |-
         QR Code Image URL for the public install page, if the
         *Enable public page for the App?* option was *enabled*.
+        

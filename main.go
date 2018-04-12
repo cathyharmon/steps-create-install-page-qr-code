@@ -7,7 +7,7 @@ import (
 
 	"github.com/bitrise-io/go-utils/log"
 	"github.com/bitrise-tools/go-steputils/stepconf"
-	steputiltools "github.com/bitrise-tools/go-steputils/tools"
+	"github.com/bitrise-tools/go-steputils/tools"
 )
 
 const (
@@ -35,7 +35,7 @@ func main() {
 		failf("Failed to generate QR Code for %s, error: %s", cfg.PublicInstallPageURL, err)
 	}
 
-	if err := steputiltools.ExportEnvironmentWithEnvman("BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL", response); err != nil {
+	if err := tools.ExportEnvironmentWithEnvman("BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL", response); err != nil {
 		failf("Failed to generate output")
 	}
 }
