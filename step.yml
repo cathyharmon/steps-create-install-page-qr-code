@@ -10,7 +10,7 @@ host_os_tags:
   - ubuntu-16.04
 
 type_tags:
-  - deploy
+  - utility
 
 is_requires_admin_user: false
 is_always_run: false
@@ -26,7 +26,6 @@ inputs:
       title: "Public Install Page URL"
       summary: "The full path to the application file (.app or .apk)"
       description: "The full path to the application file (.app or .apk)"
-      is_expand: true
       is_required: true
 
   - qr_code_size: "150x150"
@@ -37,7 +36,6 @@ inputs:
       description: |-
         The size of the QR Code image using the format : WIDTHxHEIGHT
       is_required: false
-      is_expand: true
 
 
 outputs:

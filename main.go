@@ -14,13 +14,14 @@ const (
 	baseURL = "https://api.qrserver.com/v1/create-qr-code/"
 )
 
-type config struct {
+// Config ...
+type Config struct {
 	PublicInstallPageURL string `env:"public_install_page_url,required"`
 	QRCodeSize           string `env:"qr_code_size"`
 }
 
 func main() {
-	var cfg config
+	var cfg Config
 	if err := stepconf.Parse(&cfg); err != nil {
 		log.Errorf("Error: %s\n", err)
 		os.Exit(1)
@@ -50,7 +51,7 @@ func generateQRCode(installPageURL string, qrCodeSize string) (string, error) {
 	quearryValues.Add("data", installPageURL)
 	requestURL.RawQuery = quearryValues.Encode()
 
-	log.Debugf("Out: %s", requestURL.String())
+	log.Printf("$BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL=(%s)", requestURL.String())
 
 	return requestURL.String(), nil
 }
