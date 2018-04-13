@@ -23,7 +23,6 @@ workflows:
         title: Step Test
         run_if: true
         inputs:
-        - exclude: "*/vendor/*\n*gotool"
         - public_install_page_url: $PUBLIC_INSTALL_PAGE_URL
         - qr_code_size: $QR_CODE_SIZE
     - script:
