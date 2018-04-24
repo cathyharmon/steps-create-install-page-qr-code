@@ -30,12 +30,14 @@ func main() {
 	stepconf.Print(cfg)
 	fmt.Println()
 
-	response, err := generateQRCode(cfg.PublicInstallPageURL, cfg.QRCodeSize)
+	QRCodeURL, err := generateQRCode(cfg.PublicInstallPageURL, cfg.QRCodeSize)
 	if err != nil {
 		failf("Failed to generate QR Code for %s, error: %s", cfg.PublicInstallPageURL, err)
 	}
 
-	if err := tools.ExportEnvironmentWithEnvman("BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL", response); err != nil {
+	log.Printf("$BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL=(%s)", QRCodeURL)
+
+	if err := tools.ExportEnvironmentWithEnvman("BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL", QRCodeURL); err != nil {
 		failf("Failed to generate output")
 	}
 }
@@ -50,8 +52,6 @@ func generateQRCode(installPageURL string, qrCodeSize string) (string, error) {
 	quearryValues.Add("size", qrCodeSize)
 	quearryValues.Add("data", installPageURL)
 	requestURL.RawQuery = quearryValues.Encode()
-
-	log.Printf("$BITRISE_PUBLIC_INSTALL_PAGE_QR_CODE_IMAGE_URL=(%s)", requestURL.String())
 
 	return requestURL.String(), nil
 }

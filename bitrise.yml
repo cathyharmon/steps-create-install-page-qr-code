@@ -70,7 +70,7 @@ workflows:
   share-this-step:
     envs:
       # if you want to share this step into a StepLib
-      - BITRISE_STEP_ID: steps-create-install-page-qr-code
+      - BITRISE_STEP_ID: create-install-page-qr-code
       - BITRISE_STEP_GIT_CLONE_URL: https://github.com/bitrise-steplib/steps-create-install-page-qr-code
       - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
       - BITRISE_STEP_VERSION: $BITRISE_STEP_VERSION
