@@ -17,7 +17,7 @@ const (
 // Config ...
 type Config struct {
 	PublicInstallPageURL string `env:"public_install_page_url,required"`
-	QRCodeSize           string `env:"qr_code_size"`
+	QRCodeSize           string `env:"qr_code_size,required"`
 }
 
 func main() {
