@@ -4,6 +4,8 @@
 
 ### 1.0.0 (2018 Apr 25)
 
+* [e590f11] typo fix
+* [d5629ec] v1.0.0
 * [026c16c] Merge pull request #2 from BirmacherAkos/fork-master
 * [365e71a] Merge branch 'master' into fork-master
 * [8b97296] input fix
