@@ -22,6 +22,7 @@ type Config struct {
 
 func main() {
 	var cfg Config
+	log.Errorf("cathy fucked this up", "4")
 	if err := stepconf.Parse(&cfg); err != nil {
 		log.Errorf("Error: %s\n", err)
 		os.Exit(1)
